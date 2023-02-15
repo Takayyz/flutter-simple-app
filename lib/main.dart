@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -83,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ]),
       ),
       body: Column(children: [
+        const Icon(FontAwesomeIcons.gift, color: Colors.teal),
         Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
         // Text('$_type', style: const TextStyle(fontSize: 20, color: Colors.red)),
         if (_counter % 2 == 0)
