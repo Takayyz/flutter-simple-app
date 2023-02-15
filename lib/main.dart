@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: MyStateLessHomePage(),
     );
   }
 }
@@ -157,6 +158,18 @@ class _MyHomePageState extends State<MyHomePage> {
       //   tooltip: 'Increment',
       //   child: const Icon(Icons.add),
       // ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class MyStateLessHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Stateless HomePage.'),
+      ),
+      body: const Text('書き換えしないページ'),
     );
   }
 }
