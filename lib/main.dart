@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -84,6 +85,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ]),
       ),
       body: Column(children: [
+        // IconButton(
+        //   icon: const Icon(Icons.add),
+        //   onPressed: () async {
+        //     final Uri url = Uri.parse('https://www.google.com/');
+        //     if (await canLaunchUrl(url)) {
+        //       await launchUrl(
+        //         url,
+        //         mode: LaunchMode.externalApplication,
+        //       );
+        //     }
+        //   },
+        // ),
         const Icon(FontAwesomeIcons.gift, color: Colors.teal),
         Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
         // Text('$_type', style: const TextStyle(fontSize: 20, color: Colors.red)),
