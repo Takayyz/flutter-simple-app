@@ -51,9 +51,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   // String _type = '奇数';
 
+  int _counter = 0;
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -65,6 +65,21 @@ class _MyHomePageState extends State<MyHomePage> {
       print('helloworld');
       // _type = _counter % 2 == 0 ? '偶数' : '奇数';
     });
+  }
+
+  double _progress = 0;
+  void _incrementProgress() {
+    setState(() {
+      print(_progress);
+
+      if (_progress == 1.0) {
+        _progress = 0;
+      } else {
+        _progress += 0.2;
+      }
+    });
+
+    // print(_progress);
   }
 
   @override
@@ -97,6 +112,20 @@ class _MyHomePageState extends State<MyHomePage> {
         //     }
         //   },
         // ),
+        Stack(children: [
+          SizedBox(
+            child: LinearProgressIndicator(
+              minHeight: 30.0,
+              backgroundColor: Colors.grey,
+              valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+              value: _progress,
+            ),
+          ),
+        ]),
+        TextButton(
+          onPressed: () => _incrementProgress(),
+          child: const Text('インジゲーター用ボタン'),
+        ),
         Container(
           padding: const EdgeInsets.all(10.0),
           child: const SizedBox(
