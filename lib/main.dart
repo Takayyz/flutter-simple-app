@@ -121,6 +121,15 @@ class _MyHomePageState extends State<MyHomePage> {
               value: _progress,
             ),
           ),
+          Align(
+            child: Text(
+              'あと${((1 - _progress) * 100).toStringAsFixed(1)}%',
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ]),
         TextButton(
           onPressed: () => _incrementProgress(),
