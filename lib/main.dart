@@ -97,6 +97,16 @@ class _MyHomePageState extends State<MyHomePage> {
         //     }
         //   },
         // ),
+        Container(
+          padding: const EdgeInsets.all(10.0),
+          child: const SizedBox(
+            width: 100,
+            height: 100,
+            child: CircularProgressIndicator(
+              strokeWidth: 10.0,
+            ),
+          ),
+        ),
         const Icon(FontAwesomeIcons.gift, color: Colors.teal),
         Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
         // Text('$_type', style: const TextStyle(fontSize: 20, color: Colors.red)),
