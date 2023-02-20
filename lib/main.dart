@@ -78,9 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
         _progress += 0.2;
       }
     });
-
-    // print(_progress);
   }
+
+  bool _isIncludeAniv = false;
+  bool _isIncludeEvent = false;
+  bool _isIncludeBirthdays = false;
+  bool _isIncludeMyBirthday = false;
 
   @override
   Widget build(BuildContext context) {
@@ -194,7 +197,50 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.timer),
       ),
       drawer: const Drawer(child: Center(child: Text('drawer'))),
-      endDrawer: const Drawer(child: Center(child: Text('EndDrawer'))),
+      endDrawer: Drawer(
+        child: ListView(children: <Widget>[
+          SwitchListTile(
+            title: const Text('記念日'),
+            value: _isIncludeAniv,
+            onChanged: (bool value) {
+              setState(() {
+                _isIncludeAniv = value;
+              });
+            },
+            secondary: const Icon(FontAwesomeIcons.gift, color: Colors.teal),
+          ),
+          SwitchListTile(
+            title: const Text('イベント'),
+            value: _isIncludeEvent,
+            onChanged: (bool value) {
+              setState(() {
+                _isIncludeEvent = value;
+              });
+            },
+            secondary: const Icon(FontAwesomeIcons.circleInfo, color: Colors.blue),
+          ),
+          SwitchListTile(
+            title: const Text('誕生日'),
+            value: _isIncludeBirthdays,
+            onChanged: (bool value) {
+              setState(() {
+                _isIncludeBirthdays = value;
+              });
+            },
+            secondary: const Icon(FontAwesomeIcons.cakeCandles, color: Colors.pink),
+          ),
+          SwitchListTile(
+            title: const Text('あなたの生まれた日'),
+            value: _isIncludeMyBirthday,
+            onChanged: (bool value) {
+              setState(() {
+                _isIncludeMyBirthday = value;
+              });
+            },
+            secondary: const Icon(FontAwesomeIcons.solidStar, color: Colors.amber),
+          ),
+        ]),
+      ),
       // body: Center(
       //   // Center is a layout widget. It takes a single child and positions it
       //   // in the middle of the parent.
