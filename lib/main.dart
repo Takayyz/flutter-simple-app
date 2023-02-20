@@ -122,13 +122,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Align(
-            child: Text(
-              'あと${((1 - _progress) * 100).toStringAsFixed(1)}%',
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
+            child: 
+            (_progress == 1.0)
+              ? const Text(
+                  '完了',
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                  ),
+                )
+              : Text(
+                  'あと${((1 - _progress) * 100).toStringAsFixed(1)}%',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
           ),
         ]),
         TextButton(
