@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -85,6 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _isIncludeBirthdays = false;
   bool _isIncludeMyBirthday = false;
 
+  DateTime targetDate = DateTime(2023);
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -115,6 +118,27 @@ class _MyHomePageState extends State<MyHomePage> {
         //     }
         //   },
         // ),
+        IconButton(
+          icon: const Icon(
+            FontAwesomeIcons.solidCalendar,
+            color: Colors.blue,
+            size: 30.0,
+          ),
+          onPressed: () {
+            DatePicker.showDatePicker(context,
+              showTitleActions: true,
+              minTime: DateTime(1900, 1, 1),
+              maxTime: DateTime(2099, 12, 31),
+              onConfirm: (date) {
+                setState(() {
+                  targetDate = date;
+                });
+              },
+              currentTime: targetDate,
+              locale: LocaleType.jp,
+            );
+          },
+        ),
         Stack(children: [
           SizedBox(
             child: LinearProgressIndicator(
