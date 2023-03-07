@@ -51,6 +51,34 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+enum TimeToLive {
+  tenMinutes,
+  oneHour,
+  oneDay,
+  oneWeek,
+  oneMonth,
+  oneYear
+}
+
+extension TimeToLiveExt on TimeToLive {
+  String get name {
+    switch (this) {
+      case TimeToLive.tenMinutes:
+        return '10分';
+      case TimeToLive.oneHour:
+        return '1時間';
+      case TimeToLive.oneDay:
+        return '1日';
+      case TimeToLive.oneWeek:
+        return '1週間';
+      case TimeToLive.oneMonth:
+        return '1ヶ月';
+      case TimeToLive.oneYear:
+        return '1年';
+    }
+  }
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   // String _type = '奇数';
 
@@ -88,6 +116,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   DateTime targetDate = DateTime(2023);
 
+  var _selectDuration = '10分';
+  void _changeDuration(String? selectedValue) {
+    setState(() {
+      _selectDuration = selectedValue!;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -106,6 +141,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ]),
       ),
       body: Column(children: [
+        DropdownButton<String>(
+          value: _selectDuration,
+          onChanged: _changeDuration,
+          items: TimeToLive.values
+            .map((v) =>
+              DropdownMenuItem<String>(value: v.name, child: Text(v.name)))
+            .toList(),
+        ),
         IconButton(
           icon: const Icon(Icons.add),
           onPressed: () async {
