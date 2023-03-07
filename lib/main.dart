@@ -106,18 +106,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ]),
       ),
       body: Column(children: [
-        // IconButton(
-        //   icon: const Icon(Icons.add),
-        //   onPressed: () async {
-        //     final Uri url = Uri.parse('https://www.google.com/');
-        //     if (await canLaunchUrl(url)) {
-        //       await launchUrl(
-        //         url,
-        //         mode: LaunchMode.externalApplication,
-        //       );
-        //     }
-        //   },
-        // ),
+        IconButton(
+          icon: const Icon(Icons.add),
+          onPressed: () async {
+            final Uri url = Uri.parse('https://www.google.com/');
+            if (await canLaunchUrl(url)) {
+              await launchUrl(
+                url,
+                mode: LaunchMode.externalApplication,
+              );
+            }
+          },
+        ),
         IconButton(
           icon: const Icon(
             FontAwesomeIcons.solidCalendar,
