@@ -152,6 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         reverse: true,
         child: Column(children: [
+          Image.asset('assets/images/sample.jpeg'),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
