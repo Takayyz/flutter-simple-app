@@ -148,142 +148,146 @@ class _MyHomePageState extends State<MyHomePage> {
           Text('Title with Icon'),
         ]),
       ),
-      body: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            DropdownButton<String>(
-              value: _selectDuration,
-              onChanged: _changeDuration,
-              items: TimeToLive.values
-                .map((v) =>
-                  DropdownMenuItem<String>(value: v.name, child: Text(v.name)))
-                .toList(),
-            ),
-            Expanded(
-              child: TextFormField(
-                enabled: true,
-                focusNode: _focusNode,
-                maxLines: null,
-                keyboardType: TextInputType.multiline,
-                controller: _textEditingController,
-                decoration: const InputDecoration(
-                  hintText: 'メモ',
-                ),
-                onChanged: (String value) {
-                  memo = value;
-                },
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        reverse: true,
+        child: Column(children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              DropdownButton<String>(
+                value: _selectDuration,
+                onChanged: _changeDuration,
+                items: TimeToLive.values
+                  .map((v) =>
+                    DropdownMenuItem<String>(value: v.name, child: Text(v.name)))
+                  .toList(),
               ),
-            ),
-          ],
-        ),
-        // IconButton(
-        //   icon: const Icon(Icons.add),
-        //   onPressed: () async {
-        //     final Uri url = Uri.parse('https://www.google.com/');
-        //     if (await canLaunchUrl(url)) {
-        //       await launchUrl(
-        //         url,
-        //         mode: LaunchMode.externalApplication,
-        //       );
-        //     }
-        //   },
-        // ),
-        // IconButton(
-        //   icon: const Icon(
-        //     FontAwesomeIcons.solidCalendar,
-        //     color: Colors.blue,
-        //     size: 30.0,
-        //   ),
-        //   onPressed: () {
-        //     DatePicker.showDatePicker(context,
-        //       showTitleActions: true,
-        //       minTime: DateTime(1900, 1, 1),
-        //       maxTime: DateTime(2099, 12, 31),
-        //       onConfirm: (date) {
-        //         setState(() {
-        //           targetDate = date;
-        //         });
-        //       },
-        //       currentTime: targetDate,
-        //       locale: LocaleType.jp,
-        //     );
-        //   },
-        // ),
-        // Stack(children: [
-        //   SizedBox(
-        //     child: LinearProgressIndicator(
-        //       minHeight: 30.0,
-        //       backgroundColor: Colors.grey,
-        //       valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
-        //       value: _progress,
-        //     ),
-        //   ),
-        //   Align(
-        //     child: 
-        //     (_progress == 1.0)
-        //       ? const Text(
-        //           '完了',
-        //           style: const TextStyle(
-        //             fontSize: 20.0,
-        //             color: Colors.white,
-        //           ),
-        //         )
-        //       : Text(
-        //           'あと${((1 - _progress) * 100).toStringAsFixed(1)}%',
-        //           style: const TextStyle(
-        //             fontSize: 20,
-        //             color: Colors.white,
-        //           ),
-        //         ),
-        //   ),
-        // ]),
-        // TextButton(
-        //   onPressed: () => _incrementProgress(),
-        //   child: const Text('インジゲーター用ボタン'),
-        // ),
-        // Container(
-        //   padding: const EdgeInsets.all(10.0),
-        //   child: const SizedBox(
-        //     width: 100,
-        //     height: 100,
-        //     child: CircularProgressIndicator(
-        //       strokeWidth: 10.0,
-        //     ),
-        //   ),
-        // ),
-        // const Icon(FontAwesomeIcons.gift, color: Colors.teal),
-        // Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
-        // // Text('$_type', style: const TextStyle(fontSize: 20, color: Colors.red)),
-        // if (_counter % 2 == 0)
-        //   const Text('Odd!', style: TextStyle(fontSize: 20, color: Colors.red)),
-        // const Text('Hello world'),
-        // const Text('ハローワールド'),
-        // TextButton(
-        //   onPressed: () => {print('button is pressed')},
-        //   child: const Text('テキストボタン'),
-        // ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //   children: const [
-        //     Icon(
-        //       Icons.favorite,
-        //       color: Colors.pink,
-        //       size: 24.0,
-        //     ),
-        //     Icon(
-        //       Icons.audiotrack,
-        //       color: Colors.green,
-        //       size: 30.0,
-        //     ),
-        //     Icon(
-        //       Icons.beach_access,
-        //       color: Colors.blue,
-        //       size: 36.0,
-        //     ),
-        //   ],
-        // ),
-      ]),
+              Expanded(
+                child: TextFormField(
+                  enabled: true,
+                  focusNode: _focusNode,
+                  maxLines: null,
+                  keyboardType: TextInputType.multiline,
+                  controller: _textEditingController,
+                  decoration: const InputDecoration(
+                    hintText: 'メモ',
+                  ),
+                  onChanged: (String value) {
+                    memo = value;
+                  },
+                ),
+              ),
+            ],
+          ),
+          // IconButton(
+          //   icon: const Icon(Icons.add),
+          //   onPressed: () async {
+          //     final Uri url = Uri.parse('https://www.google.com/');
+          //     if (await canLaunchUrl(url)) {
+          //       await launchUrl(
+          //         url,
+          //         mode: LaunchMode.externalApplication,
+          //       );
+          //     }
+          //   },
+          // ),
+          // IconButton(
+          //   icon: const Icon(
+          //     FontAwesomeIcons.solidCalendar,
+          //     color: Colors.blue,
+          //     size: 30.0,
+          //   ),
+          //   onPressed: () {
+          //     DatePicker.showDatePicker(context,
+          //       showTitleActions: true,
+          //       minTime: DateTime(1900, 1, 1),
+          //       maxTime: DateTime(2099, 12, 31),
+          //       onConfirm: (date) {
+          //         setState(() {
+          //           targetDate = date;
+          //         });
+          //       },
+          //       currentTime: targetDate,
+          //       locale: LocaleType.jp,
+          //     );
+          //   },
+          // ),
+          // Stack(children: [
+          //   SizedBox(
+          //     child: LinearProgressIndicator(
+          //       minHeight: 30.0,
+          //       backgroundColor: Colors.grey,
+          //       valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+          //       value: _progress,
+          //     ),
+          //   ),
+          //   Align(
+          //     child: 
+          //     (_progress == 1.0)
+          //       ? const Text(
+          //           '完了',
+          //           style: const TextStyle(
+          //             fontSize: 20.0,
+          //             color: Colors.white,
+          //           ),
+          //         )
+          //       : Text(
+          //           'あと${((1 - _progress) * 100).toStringAsFixed(1)}%',
+          //           style: const TextStyle(
+          //             fontSize: 20,
+          //             color: Colors.white,
+          //           ),
+          //         ),
+          //   ),
+          // ]),
+          // TextButton(
+          //   onPressed: () => _incrementProgress(),
+          //   child: const Text('インジゲーター用ボタン'),
+          // ),
+          // Container(
+          //   padding: const EdgeInsets.all(10.0),
+          //   child: const SizedBox(
+          //     width: 100,
+          //     height: 100,
+          //     child: CircularProgressIndicator(
+          //       strokeWidth: 10.0,
+          //     ),
+          //   ),
+          // ),
+          // const Icon(FontAwesomeIcons.gift, color: Colors.teal),
+          // Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
+          // // Text('$_type', style: const TextStyle(fontSize: 20, color: Colors.red)),
+          // if (_counter % 2 == 0)
+          //   const Text('Odd!', style: TextStyle(fontSize: 20, color: Colors.red)),
+          // const Text('Hello world'),
+          // const Text('ハローワールド'),
+          // TextButton(
+          //   onPressed: () => {print('button is pressed')},
+          //   child: const Text('テキストボタン'),
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //   children: const [
+          //     Icon(
+          //       Icons.favorite,
+          //       color: Colors.pink,
+          //       size: 24.0,
+          //     ),
+          //     Icon(
+          //       Icons.audiotrack,
+          //       color: Colors.green,
+          //       size: 30.0,
+          //     ),
+          //     Icon(
+          //       Icons.beach_access,
+          //       color: Colors.blue,
+          //       size: 36.0,
+          //     ),
+          //   ],
+          // ),
+        ]),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('booomb');
